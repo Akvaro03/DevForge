@@ -20,6 +20,14 @@ DevForge es una plataforma en línea diseñada para ayudar a los programadores a
 2. **Explora Recursos**: Navega por las diferentes categorías y temas para encontrar recursos que se adapten a tus necesidades y intereses.
 3. **Guarda tus Favoritos**: Guarda tus recursos favoritos en tu perfil para acceder a ellos fácilmente más tarde y recibir recomendaciones personalizadas.
 4. **Contribuye**: ¡Comparte tus propios recursos, deja comentarios y ayuda a mejorar la plataforma para la comunidad de programadores!
+   
+## Tecnologías Utilizadas
+
+- **Frontend**: React.js, Redux, Material-UI
+- **Backend**: Node.js, Express.js, MongoDB
+- **Autenticación**: JWT (JSON Web Tokens)
+- **Notificaciones en Tiempo Real**: WebSockets (Socket.io)
+- **Seguridad**: HTTPS, cifrado de contraseñas, autenticación de dos factores
 
 ## Contribuciones
 
