@@ -17,9 +17,15 @@ function TypesData() {
                     <ItemType type={type.name} key={key} />
                 ))}
             </motion.section >
-            <motion.article onClick={() => SetOpenTypes((prev: boolean) => !prev)} className={Style.arrowDropDown} whileHover={{ translateY: 20, scale: 1.1 }}>
+            <motion.article
+                onClick={() => SetOpenTypes((prev: boolean) => !prev)}
+                animate={openTypes ? "open" : "closed"}
+                variants={variantsArrow}
+                className={Style.arrowDropDown}
+                transition={{ duration: 0.2 }}
+                whileHover={{ translateY: 20, scale: 1.1 }}>
                 <ArrowDropDownIcon />
-            </motion.article>
+            </motion.article >
         </>
     );
 }
@@ -27,6 +33,10 @@ function TypesData() {
 const variants = {
     open: { height: "auto" },
     closed: { height: "15vh" },
+}
+const variantsArrow = {
+    open: { rotateZ: 180 },
+    closed: { rotateZ: 0 },
 }
 
 export default TypesData;
