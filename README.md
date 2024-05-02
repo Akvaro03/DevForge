@@ -23,7 +23,7 @@ DevForge es una plataforma en línea diseñada para ayudar a los programadores a
    
 ## Tecnologías Utilizadas
 
-- **Frontend**: React.js, Redux, Material-UI
+- **Frontend**: React.js, Redux, Material-UI, Next.js, Motion
 - **Backend**: Node.js, Express.js, MongoDB
 - **Autenticación**: JWT (JSON Web Tokens)
 - **Notificaciones en Tiempo Real**: WebSockets (Socket.io)
@@ -33,6 +33,9 @@ DevForge es una plataforma en línea diseñada para ayudar a los programadores a
 
 ¡DevForge es un proyecto de código abierto y tus contribuciones son bienvenidas! Si tienes ideas para nuevas características, mejoras en la interfaz de usuario o correcciones de errores, no dudes en enviar una solicitud de extracción.
 
+## Data
+https://devresourc.es
+https://publicapis.dev
 ## Contacto
 
 Si tienes alguna pregunta, sugerencia o problema, no dudes en ponerte en contacto con nosotros en [contact@DevForge.com](mailto:contact@DevForge.com).

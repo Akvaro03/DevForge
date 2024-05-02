@@ -1,0 +1,7 @@
+.containerFilter {
+    border: 1px solid black;
+    padding: 10px;
+    min-width: 100px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.123) 0px 5px 15px;
+}

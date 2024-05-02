@@ -1,0 +1,20 @@
+.headerPage {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerHeaders {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20vw;
+}
+
+.tittlePage {
+    text-align: left;
+    font-size: 3vmin;
+    padding-top: 10px;
+    font-weight: bold;
+}
