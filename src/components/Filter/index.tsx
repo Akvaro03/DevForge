@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 import Style from "./Filter.module.css"
 import { motion } from "framer-motion"
 
-function CustomButtom({ tittle, icon }: { tittle: string, icon?: ReactElement }) {
+function CustomBottom({ tittle, icon }: { tittle: string, icon?: ReactElement }) {
     return (
         <motion.article whileHover={{ scale: 1.05 }} whileTap={{ scale: .9 }} className={Style.containerFilter}>
             {icon}
@@ -13,4 +13,4 @@ function CustomButtom({ tittle, icon }: { tittle: string, icon?: ReactElement })
     );
 }
 
-export default CustomButtom;
+export default CustomBottom;

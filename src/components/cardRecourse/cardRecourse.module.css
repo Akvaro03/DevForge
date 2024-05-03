@@ -1,0 +1,27 @@
+.CardRecourse {
+    background: grey;
+    border-radius: 16px;
+    padding: 0;
+    margin: 15px 10px;
+    display: inline-flex; /* Alinea los pines en línea */
+    width: 100%; /* Ancho del pin teniendo en cuenta el margen */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: calc(100% + 50px);
+}
+
+.tittleCard {
+    text-align: left;
+    font-size: 3vmin;
+    padding-top: 10px;
+    font-weight: bold;
+    width: 80%;
+}
+
+.subtitleCard{
+    font-size: 2vmin;
+    text-align: left;
+    width: 80%;
+    margin-bottom: 20px;
+}

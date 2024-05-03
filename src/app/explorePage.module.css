@@ -21,8 +21,6 @@
 
 .containerRecourses {
     width: 85%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    grid-template-rows: masonry;
+    column-count: 3;
+    column-gap: 20px;
 }
