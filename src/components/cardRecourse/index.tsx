@@ -7,15 +7,15 @@ import { motion } from "framer-motion"
 import React, { useEffect, useState } from "react";
 
 function CardRecourse({ name, description, url, categories }: recourseType) {
-    const [height, setHeight] = useState(150);
+    const [height, setHeight] = useState(250);
     const categoriesString = categories.map((str, index) => (
         <React.Fragment key={index}>
-          {str}
-          {index !== categories.length - 1 && <span className={Style.joinCategories}> / </span>}
+            {str}
+            {index !== categories.length - 1 && <span className={Style.joinCategories}> / </span>}
         </React.Fragment>
-      ));
-    
-    
+    ));
+
+
     useEffect(() => {
         const calculatedHeight = getRandomNumber(description.length * 1.5, 200);
         setHeight(calculatedHeight);
