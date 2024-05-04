@@ -15,27 +15,29 @@ function SignIn() {
             <h4 className={Style.subtittleForm}>Enter your credentials to access your account.</h4>
             <form className={Style.formData} onSubmit={handleForm}>
                 <div className={Style.inputForm}>
-                    <label htmlFor="email">Email/Username</label>
+                    <label htmlFor="email">Email <span className={Style.resalt}>/</span> Username</label>
                     <TextField
                         id="email"
-                        label="Email/Username"
                         type="email"
                         autoComplete="current-password"
+                        color="warning"
                     />
                 </div>
                 <div className={Style.inputForm}>
                     <label htmlFor="Password">Password</label>
                     <TextField
                         id="Password"
-                        label="Password"
                         type="password"
                         autoComplete="current-password"
+                        color="warning"
                     />
                 </div>
-                <button type="submit">Sign In</button>
-                <article>
-                    <Link href={"/recoveryPassword"}>Forgot Password?</Link>
-                    <Link href={"/createAccount"}>Create Account</Link>
+                <article className={Style.containerBottoms}>
+                    <button type="submit">Sign In</button>
+                    <div>
+                        <Link href={"/recoveryPassword"}>Forgot Password?</Link>
+                        <Link href={"/createAccount"}>Create Account</Link>
+                    </div>
                 </article>
             </form>
         </section>
