@@ -8,7 +8,7 @@ import TypesData from "@/components/typesData";
 import RecoursesData from "@/assets/db/data.json"
 import CustomBottom from "@/components/Filter";
 import CardRecourse from "@/components/cardRecourse";
-import IsInView from "@/utils/isInView";
+import IsInView from "@/components/IsInView";
 
 export default function Home() {
   const [countPins, setCountPins] = useState(20)
