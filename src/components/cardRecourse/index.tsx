@@ -16,7 +16,7 @@ function CardRecourse({ name, description, url }: recourseType) {
 
     return (
         <motion.div style={{ height }}
-            whileHover={{ scale: .9 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            whileHover={{ scale: .9, }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             onClick={() => window.open(url)}
             className={Style.CardRecourse} >
             <h2 className={Style.tittleCard}>{name}</h2>

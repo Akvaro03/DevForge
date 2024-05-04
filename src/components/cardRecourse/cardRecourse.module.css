@@ -4,14 +4,13 @@
     padding: 0;
     margin: 15px 10px;
     display: inline-flex;
-    /* Alinea los pines en línea */
     width: 100%;
-    /* Ancho del pin teniendo en cuenta el margen */
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     height: calc(100% + 50px);
     position: relative;
+    overflow: hidden;
 }
 
 .CardRecourse * {
@@ -21,14 +20,37 @@
 .CardRecourse::before {
     position: absolute;
     content: "";
-    width: 100%;
+    width: 50%;
     border-radius: 16px;
-    height: 100%;
+    height: 500%;
     background: linear-gradient(to bottom, var(--first-theme) 15%, var(--second-theme) 50%, var(--first-theme) 100%);
-    z-index: -100;
+}
+
+.CardRecourse:hover:before {
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(520deg);
+    }
 }
 
 .CardRecourse::after {
+    position: absolute;
+    background: var(--background-start-rgb);;
+    inset: 0px;
+    border-radius: 16px;
+    content: "";
+}
+.CardRecourse:hover:after{
+    inset: 3px;
+}
+/* .CardRecourse::after {
     position: absolute;
     content: "";
     background: var(--background-start-rgb);
@@ -41,7 +63,7 @@
 .CardRecourse:hover::before {
     width: calc(100% + 5px);
     height: calc(100% + 5px);
-}
+} */
 
 .tittleCard {
     text-align: left;

@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-function isInView(funcInView: () => void, ref: React.MutableRefObject<null>) {
+function IsInView({ funcInView }: { funcInView: () => void }) {
+    const h5Ref = useRef(null)
     useEffect(() => {
         const options = {
             root: null,
@@ -16,13 +17,16 @@ function isInView(funcInView: () => void, ref: React.MutableRefObject<null>) {
             });
         }, options);
 
-        if (ref.current) {
-            observer.observe(ref.current);
+        if (h5Ref.current) {
+            observer.observe(h5Ref.current);
         }
 
         // Limpiar el observer cuando el componente se desmonte
         return () => observer.disconnect();
     }, []);
+    return (
+        <h5 ref={h5Ref} />
+    )
 }
 
-export default isInView;
+export default IsInView;

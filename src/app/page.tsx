@@ -8,15 +8,13 @@ import TypesData from "@/components/typesData";
 import RecoursesData from "@/assets/db/data.json"
 import CustomBottom from "@/components/Filter";
 import CardRecourse from "@/components/cardRecourse";
-import isInView from "@/utils/isInView";
+import IsInView from "@/utils/isInView";
 
 export default function Home() {
   const [countPins, setCountPins] = useState(20)
-  const h2Ref = useRef(null);
   const functInView = () => {
     setCountPins(prev => prev + 20)
   }
-  isInView(functInView, h2Ref)
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
       <section className={Style.headerPage}>
@@ -25,7 +23,6 @@ export default function Home() {
           <CustomBottom tittle="Filter" icon={<FilterAltOutlinedIcon />} />
           <CustomBottom tittle="Sort" icon={<SortOutlinedIcon />} />
         </article>
-
       </section>
       <TypesData />
       <motion.section layout className={Style.containerRecourses}>
@@ -33,7 +30,7 @@ export default function Home() {
           <CardRecourse {...data} key={key} />
         ))}
       </motion.section>
-      <h2 ref={h2Ref} />
+      <IsInView funcInView={functInView} />
     </main>
   );
 }
