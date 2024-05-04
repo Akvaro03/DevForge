@@ -10,6 +10,7 @@ import CustomBottom from "@/components/Filter";
 import CardRecourse from "@/components/cardRecourse";
 import IsInView from "@/components/IsInView";
 import recourseType from "@/types/recourseType";
+import HeaderComponent from "@/components/HeaderComponent";
 
 export default function Home() {
   const [countPins, setCountPins] = useState(20)
@@ -29,6 +30,7 @@ export default function Home() {
   const filteredData = getFilteredData(RecoursesData.data, categoriesSelected);
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
+      <HeaderComponent />
       <section className={Style.headerPage}>
         <h1 className={Style.tittlePage}>Explore</h1>
         <article className={Style.containerHeaders}>

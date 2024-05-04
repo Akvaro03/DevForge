@@ -1,10 +1,13 @@
+import Style from "./headerComponent.module.css"
+import LoginIcon from '@mui/icons-material/Login';
+import LinkCustom from '../LinkCustom';
 function HeaderComponent() {
     return (
-        <header>
-            <h1>DevForges</h1>
-            <section>
-                <button>Sing in</button>
-                <button>Login</button>
+        <header className={Style.containerHeader}>
+            <h1 className={Style.tittleHeader}>Dev<span>Forges</span></h1>
+            <section className={Style.containerButtons}>
+                <LinkCustom url='/singIn' tittle='Sing in' icon={<LoginIcon style={{ rotate: "180deg" }} />} />
+                <LinkCustom url='/login' tittle='Login' />
             </section>
         </header>
     );

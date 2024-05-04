@@ -1,0 +1,28 @@
+.containerHeader{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tittleHeader{
+    font-size: 4vmin;
+    color: var(--white-theme);
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.tittleHeader span{
+    color: var(--first-theme);
+}
+.containerButtons{
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.containerButtons button{
+    border: 1px solid black;
+    padding: 10px;
+    min-width: 100px;
+    border-radius: 10px;
+}
