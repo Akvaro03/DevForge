@@ -15,6 +15,7 @@
 .tittlePage {
     text-align: left;
     font-size: 3vmin;
+    color: var(--white-theme);
     padding-top: 10px;
     font-weight: bold;
 }

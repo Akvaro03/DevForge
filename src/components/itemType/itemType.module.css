@@ -1,5 +1,5 @@
 .itemType {
-    border: 1px solid rgb(var(--foreground-rgb));
+    border: 1px solid var(--first-theme);
     border-radius: 15px;
     padding: 3px 12px;
 }

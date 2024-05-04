@@ -3,15 +3,20 @@ import { motion } from "framer-motion"
 import Style from "./explorePage.module.css"
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import SortOutlinedIcon from '@mui/icons-material/SortOutlined';
-import React from "react";
+import React, { useRef, useState } from "react";
 import TypesData from "@/components/typesData";
 import RecoursesData from "@/assets/db/data.json"
 import CustomBottom from "@/components/Filter";
 import CardRecourse from "@/components/cardRecourse";
+import isInView from "@/utils/isInView";
 
 export default function Home() {
-  const countPins = 20;
-
+  const [countPins, setCountPins] = useState(20)
+  const h2Ref = useRef(null);
+  const functInView = () => {
+    setCountPins(prev => prev + 20)
+  }
+  isInView(functInView, h2Ref)
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
       <section className={Style.headerPage}>
@@ -28,6 +33,7 @@ export default function Home() {
           <CardRecourse {...data} key={key} />
         ))}
       </motion.section>
+      <h2 ref={h2Ref} />
     </main>
   );
 }

@@ -1,14 +1,46 @@
 .CardRecourse {
-    background: grey;
+    background: var(--background-start-rgb);
     border-radius: 16px;
     padding: 0;
     margin: 15px 10px;
-    display: inline-flex; /* Alinea los pines en línea */
-    width: 100%; /* Ancho del pin teniendo en cuenta el margen */
+    display: inline-flex;
+    /* Alinea los pines en línea */
+    width: 100%;
+    /* Ancho del pin teniendo en cuenta el margen */
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     height: calc(100% + 50px);
+    position: relative;
+}
+
+.CardRecourse * {
+    z-index: 3;
+}
+
+.CardRecourse::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    border-radius: 16px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--first-theme) 15%, var(--second-theme) 50%, var(--first-theme) 100%);
+    z-index: -100;
+}
+
+.CardRecourse::after {
+    position: absolute;
+    content: "";
+    background: var(--background-start-rgb);
+    width: 100%;
+    border-radius: 16px;
+    height: 100%;
+    z-index: 1;
+}
+
+.CardRecourse:hover::before {
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
 }
 
 .tittleCard {
@@ -19,9 +51,11 @@
     width: 80%;
 }
 
-.subtitleCard{
-    font-size: 2vmin;
+.subtitleCard {
+    font-size: 1.7vmin;
     text-align: left;
     width: 80%;
     margin-bottom: 20px;
+    margin-top: 20px;
+    color: var(--white-theme);
 }

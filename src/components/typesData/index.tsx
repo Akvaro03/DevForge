@@ -23,7 +23,7 @@ function TypesData() {
                 variants={variantsArrow}
                 className={Style.arrowDropDown}
                 transition={{ duration: 0.2 }}
-                whileHover={{ translateY: 20, scale: 1.1 }}>
+                whileHover={openTypes ? hoverOpenArrow : hoverArrow}>
                 <ArrowDropDownIcon />
             </motion.article >
         </>
@@ -38,5 +38,6 @@ const variantsArrow = {
     open: { rotateZ: 180 },
     closed: { rotateZ: 0 },
 }
-
+const hoverOpenArrow = { translateY: -20, scale: 1.5 }
+const hoverArrow = { translateY: 20, scale: 1.5 }
 export default TypesData;
