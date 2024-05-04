@@ -6,7 +6,7 @@ import SortOutlinedIcon from '@mui/icons-material/SortOutlined';
 import React, { useCallback, useState } from "react";
 import TypesData from "@/components/typesData";
 import RecoursesData from "@/assets/db/data.json"
-import CustomBottom from "@/components/Filter";
+import CustomBottom from "@/components/customBottom";
 import CardRecourse from "@/components/cardRecourse";
 import IsInView from "@/components/IsInView";
 import recourseType from "@/types/recourseType";
@@ -32,11 +32,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center p-8">
       <HeaderComponent />
       <section className={Style.headerPage}>
-        <h1 className={Style.tittlePage}>Explore</h1>
-        <article className={Style.containerHeaders}>
-          <CustomBottom tittle="Filter" icon={<FilterAltOutlinedIcon />} />
-          <CustomBottom tittle="Sort" icon={<SortOutlinedIcon />} />
-        </article>
+        <h1 className={Style.tittlePage}>Explore Recourses</h1>
       </section>
       <TypesData categoriesSelected={categoriesSelected} onClick={handleCategoriesSelected} />
       <motion.section layout className={Style.containerRecourses}>

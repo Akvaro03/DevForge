@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CustomBottom from "../Filter";
+import CustomBottom from "../customBottom";
 import { ReactElement } from "react";
 
 function LinkCustom({ url, tittle, icon, onClick }: { url: string, tittle: string, icon?: ReactElement, onClick?: () => void }) {

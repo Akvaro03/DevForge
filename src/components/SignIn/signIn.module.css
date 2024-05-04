@@ -1,0 +1,35 @@
+.containerSignIn {
+    width: 30vw;
+    height: 50vh;
+    background: var(--second-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tittleForm {
+    font-size: 3vmin;
+    padding: 18px 0 0 0;
+    font-weight: bold;
+}
+
+.subtittleForm {
+    font-size: 1.5vmin;
+    color: var(--subtitle-theme);
+}
+
+.formData {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    justify-content: space-around;
+}
+
+.inputForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputForm input{
+    background: transparent;
+}
