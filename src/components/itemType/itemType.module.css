@@ -1,5 +1,10 @@
-.itemType {
+.itemType,
+.itemTypeSelect {
     border: 1px solid var(--first-theme);
     border-radius: 15px;
     padding: 3px 12px;
+}
+
+.itemTypeSelect {
+    background: var(--first-theme);
 }

@@ -50,34 +50,28 @@
 .CardRecourse:hover:after{
     inset: 3px;
 }
-/* .CardRecourse::after {
-    position: absolute;
-    content: "";
-    background: var(--background-start-rgb);
-    width: 100%;
-    border-radius: 16px;
-    height: 100%;
-    z-index: 1;
+.containerTittle{
+    width: 80%;
+    padding-top: 10px;
 }
-
-.CardRecourse:hover::before {
-    width: calc(100% + 5px);
-    height: calc(100% + 5px);
-} */
-
 .tittleCard {
     text-align: left;
     font-size: 3vmin;
-    padding-top: 10px;
     font-weight: bold;
-    width: 80%;
 }
-
-.subtitleCard {
+.subtitleCard{
+    color: var(--subtitle-theme);
+    font-size: 1.5vmin;
+}
+.descriptionCard {
     font-size: 1.7vmin;
     text-align: left;
     width: 80%;
     margin-bottom: 20px;
     margin-top: 20px;
-    color: var(--white-theme);
+    color: var(--subtitle-theme);
+}
+
+.joinCategories{
+    color: var(--first-theme);
 }

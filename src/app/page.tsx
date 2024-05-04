@@ -12,8 +12,16 @@ import IsInView from "@/components/IsInView";
 
 export default function Home() {
   const [countPins, setCountPins] = useState(20)
-  const functInView = () => {
-    setCountPins(prev => prev + 20)
+  const [categoriesSelected, setCategoriesSelected] = useState<string[]>([])
+  const loadMorePins = () => {
+    setCountPins(prevCount => prevCount + 20);
+  };
+  const handleCategoriesSelected = (name: string) => {
+    if (categoriesSelected.includes(name)) {
+      setCategoriesSelected(prev => prev.filter(namePrev => namePrev != name))
+    } else {
+      setCategoriesSelected(prev => [...prev, name])
+    }
   }
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
@@ -24,13 +32,13 @@ export default function Home() {
           <CustomBottom tittle="Sort" icon={<SortOutlinedIcon />} />
         </article>
       </section>
-      <TypesData />
+      <TypesData categoriesSelected={categoriesSelected} onClick={handleCategoriesSelected} />
       <motion.section layout className={Style.containerRecourses}>
         {RecoursesData.data.slice(0, countPins).map((data, key) => (
           <CardRecourse {...data} key={key} />
         ))}
       </motion.section>
-      <IsInView funcInView={functInView} />
+      <IsInView funcInView={loadMorePins} />
     </main>
   );
 }

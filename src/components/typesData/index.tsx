@@ -6,7 +6,7 @@ import Style from "./typeData.module.css"
 import ItemType from "../itemType";
 import { motion } from "framer-motion"
 import { useState } from "react";
-function TypesData() {
+function TypesData({ categoriesSelected, onClick, }: { categoriesSelected: string[], onClick: (name: string) => void }) {
     const [openTypes, SetOpenTypes] = useState(false)
     return (
         <>
@@ -14,7 +14,7 @@ function TypesData() {
                 animate={openTypes ? "open" : "closed"}
                 variants={variants} className={Style.containerTypes}>
                 {categories.data.map((type, key) => (
-                    <ItemType type={type.name} key={key} />
+                    <ItemType isSelect={categoriesSelected.includes(type.name)} type={type.name} key={key} onClick={onClick} />
                 ))}
             </motion.section >
             <motion.article
