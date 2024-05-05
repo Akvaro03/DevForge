@@ -11,8 +11,15 @@ function HeaderComponent() {
                 </Link>
             </h1>
             <section className={Style.containerButtons}>
-                <LinkCustom url='/singIn' tittle='Sing in' icon={<LoginIcon style={{ rotate: "180deg" }} />} />
-                <LinkCustom url='/login' tittle='Login' />
+                <LinkCustom
+                    url='/createAccount'
+                    tittle='Create Account'
+                />
+                <LinkCustom
+                    url='/singIn'
+                    tittle='Sing in'
+                    icon={<LoginIcon style={{ rotate: "180deg" }} />}
+                />
             </section>
         </header>
     );

@@ -1,18 +1,17 @@
-"use client"
-
-import Link from "next/link";
-import Style from "./signIn.module.css"
+import CustomInput from "@/components/CustomInput";
+import { ReactElement, useEffect, useState } from "react";
+import Style from "./FormUser.module.css"
 import { motion } from "framer-motion"
-import CustomInput from "../CustomInput";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import FormUserData from "@/types/FormUserData";
 
-function SignIn() {
-    const [formData, setFormData] = useState<FormData>({
+
+function FormUser({ onSubmit, tittleComponent }: { onSubmit: (a: FormUserData) => void, tittleComponent: ReactElement }) {
+    const [formData, setFormData] = useState<FormUserData>({
         email: '',
         password: '',
     });
     const [formErrors, setFormErrors] = useState<Partial<FormErrors>>(initialFormErrors);
-
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -22,7 +21,7 @@ function SignIn() {
         }
     };
     const validateForm = () => {
-        const errors: Partial<FormData> = {};
+        const errors: Partial<FormUserData> = {};
         if (!formData.email.trim()) {
             errors.email = 'El email es requerido';
         }
@@ -32,30 +31,27 @@ function SignIn() {
         setFormErrors(errors)
         return Object.keys(errors).length === 0;
     }
-    const handleForm = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        // Aquí puedes hacer algo con los datos del formulario, como enviarlos a un servidor
+    const handleForm = (e: React.FormEvent) => {
+        e.preventDefault()
         if (validateForm()) {
-            const response = await fetch('/api/signIn', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-            })
-            console.log(response)
+            onSubmit(formData)
         } else {
             console.log("El formulario esta mal")
         }
-    };
+    }
     useEffect(() => {
-        const initialValues: FormData = {
+        const initialValues: FormUserData = {
             email: (document.getElementById('email') as HTMLInputElement)?.value || '',
             password: (document.getElementById('email') as HTMLInputElement)?.value || '',
         };
         setFormData(initialValues);
     }, []);
-
     return (
-        <section className={Style.containerSignIn}>
-            <h1 className={Style.tittleForm}><span className={Style.resalt}>Sing</span> in</h1>
+        <motion.section
+            initial={{ translateX: -1300 }}
+            animate={{ translateX: 0 }}
+            className={Style.containerSignIn}>
+            <h1 className={Style.tittleForm}>{tittleComponent}</h1>
             <h4 className={Style.subtittleForm}>Enter your credentials to access your account.</h4>
             <form className={Style.formData} onSubmit={handleForm}>
                 <div className={Style.inputForm}>
@@ -68,7 +64,7 @@ function SignIn() {
                 </div>
                 <article className={Style.containerBottoms}>
                     <motion.button whileHover={{ scale: .95 }} type="submit">
-                        Sign <span className={Style.resalt}>In</span>
+                        {tittleComponent}
                     </motion.button>
                     <div className={Style.containerLinks}>
                         <Link href={"/recoveryPassword"}>Forgot Password?</Link>
@@ -76,16 +72,16 @@ function SignIn() {
                     </div>
                 </article>
             </form>
-            <div className="py-5">
-                {formErrors ? formErrors.email : ""}
-                {formErrors ? formErrors.password : ""}
+            <div className="p-8 text-center">
+                <h4 className="text-center">
+                    {formErrors ? formErrors.password : ""}
+                </h4>
+                <h4 className="text-center">
+
+                    {formErrors ? formErrors.email : ""}
+                </h4>
             </div>
-        </section>
-    );
-}
-interface FormData {
-    password: string;
-    email: string;
+        </motion.section>)
 }
 interface FormErrors {
     password?: string;
@@ -97,4 +93,4 @@ const initialFormErrors: FormErrors = {
     email: undefined,
 };
 
-export default SignIn;
+export default FormUser;

@@ -17,7 +17,9 @@ body {
   color: var(--white-theme);
   background: var(--background-rgb);
 }
-
+.resalt{
+  color: var(--first-theme);
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

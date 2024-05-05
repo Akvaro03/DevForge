@@ -4,7 +4,7 @@ import HeaderComponent from "@/components/HeaderComponent";
 import FormUser from "@/template/formUser";
 import FormUserData from "@/types/FormUserData";
 
-function SingInPage() {
+function LoginPage() {
     const handleSubmit = (data: FormUserData) => {
         console.log(data)
     }
@@ -15,11 +15,11 @@ function SingInPage() {
             <div className="flex items-center justify-center h-[80vh]">
                 <FormUser
                     onSubmit={handleSubmit}
-                    tittleComponent={<><span className="resalt">Sign</span> In</>}
+                    tittleComponent={<><span className="resalt">Create</span> Account</>}
                 />
             </div>
         </main>
     );
 }
 
-export default SingInPage;
+export default LoginPage;
