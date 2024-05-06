@@ -16,7 +16,7 @@ function LoginPage() {
                 <FormUser
                     type="createAccount"
                     onSubmit={handleSubmit}
-                    tittleComponent={<><span className="resalt">Create</span> Account</>}
+                    tittleComponent={<><span className="important">Create</span> Account</>}
                 />
             </div>
         </main>

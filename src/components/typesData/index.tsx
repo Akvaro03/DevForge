@@ -1,19 +1,19 @@
 "use client"
 
-import categories from "@/assets/db/categories.json"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Style from "./typeData.module.css"
 import ItemType from "../itemType";
 import { motion } from "framer-motion"
 import { useState } from "react";
-function TypesData({ categoriesSelected, onClick, }: { categoriesSelected: string[], onClick: (name: string) => void }) {
+import { categoryType } from '@/types/categoryTypes';
+function TypesData({ categories, categoriesSelected, onClick, }: { categories: categoryType[], categoriesSelected: string[], onClick: (name: string) => void }) {
     const [openTypes, SetOpenTypes] = useState(false)
     return (
         <>
             <motion.section
                 animate={openTypes ? "open" : "closed"}
                 variants={variants} className={Style.containerTypes}>
-                {categories.data.map((type, key) => (
+                {categories.map((type, key) => (
                     <ItemType isSelect={categoriesSelected.includes(type.name)} type={type.name} key={key} onClick={onClick} />
                 ))}
             </motion.section >

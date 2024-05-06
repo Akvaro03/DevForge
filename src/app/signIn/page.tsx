@@ -16,7 +16,7 @@ function SingInPage() {
                 <FormUser
                     type="signIn"
                     onSubmit={handleSubmit}
-                    tittleComponent={<><span className="resalt">Sign</span> In</>}
+                    tittleComponent={<><span className="important">Sign</span> In</>}
                 />
             </div>
         </main>

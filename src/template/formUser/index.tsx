@@ -15,7 +15,6 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        // Si hay un error en el campo, borrarlo al empezar a escribir nuevamente
         if (formErrors.hasOwnProperty(name)) {
             setFormErrors({ ...formErrors, [name]: "" });
         }
@@ -59,16 +58,16 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
             <h4 className={Style.subtittleForm}>Enter your credentials to access your account.</h4>
             <form className={Style.formData} onSubmit={handleForm}>
                 <div className={Style.inputForm}>
-                    <label htmlFor="email">Email <span className={Style.resalt}>/</span> Username</label>
+                    <label htmlFor="email">Email <span className={Style.important}>/</span> Username</label>
                     <CustomInput defaultValue={formData.email} onChange={handleInputChange} name="email" id="email" type="email" />
                 </div>
                 <div className={Style.inputForm}>
-                    <label htmlFor="password">Pass<span className={Style.resalt}>word</span></label>
+                    <label htmlFor="password">Pass<span className={Style.important}>word</span></label>
                     <CustomInput defaultValue={formData.password} onChange={handleInputChange} name="password" id="password" type="password" />
                 </div>
                 {type === "createAccount" && (
                     <div className={Style.inputForm}>
-                        <label htmlFor="password"><span className={Style.resalt}>User</span>name</label>
+                        <label htmlFor="password"><span className={Style.important}>User</span>name</label>
                         <CustomInput defaultValue={formData.username} onChange={handleInputChange} name="username" id="username" type="text" />
                     </div>
                 )}
