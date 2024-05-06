@@ -5,8 +5,6 @@ import { usePathname } from 'next/navigation'
 // function LinkCustom({ url, tittle, icon, onClick }: { url: string, tittle: string, icon?: ReactElement, onClick?: () => void }) {
 function LinkCustom({ url, children }: { url: string, children: ReactElement }) {
     const pathName = usePathname()
-    console.log(pathName)
-    console.log(url)
     return (
         <Link style={{ color: url === pathName ? "var(--first-theme)" : "white" }} href={url}>
             {children}
