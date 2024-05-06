@@ -23,7 +23,7 @@ function IsInView({ funcInView }: { funcInView: () => void }) {
 
         // Limpiar el observer cuando el componente se desmonte
         return () => observer.disconnect();
-    }, []);
+    }, [funcInView]);
     return (
         <h5 ref={h5Ref} />
     )

@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import recourseType from "@/types/recourseType";
 import Style from "./cardRecourse.module.css"
 import { motion } from "framer-motion"
-import useSaveRecourse from "@/hooks/useSaveRecourse";
 import BookMarkRecourse from "../bookMarkRecourse";
+import saveRecourse from "@/db/saveRecourse";
 
 function CardRecourse({ name, description, url, categories }: recourseType) {
     const [isHover, setIsHover] = useState(false)
@@ -20,7 +20,7 @@ function CardRecourse({ name, description, url, categories }: recourseType) {
     const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
         if (target.tagName === 'path' || target.tagName === 'svg') {
-            useSaveRecourse(name)
+            saveRecourse(name)
         } else {
             window.open(url);
         }

@@ -1,12 +1,11 @@
 import { motion } from "framer-motion"
-import useSaveRecourse from "@/hooks/useSaveRecourse";
-import useGetUser from "@/hooks/useGetUser";
 import userType from "@/types/userType";
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import getUser from "@/db/getUser";
 
 function BookMarkRecourse({ isHover, nameRecourse }: { isHover: boolean, nameRecourse: string }) {
-    const { user }: { user: userType | null } = useGetUser()
+    const { user }: { user: userType | null } = getUser()
     return (
         isHover && (
             <motion.span

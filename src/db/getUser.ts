@@ -4,9 +4,9 @@ interface GetUserHookResult {
 }
 
 
-function useGetUser(): GetUserHookResult {
+function getUser(): GetUserHookResult {
     const user: userType | null = null
     return { user }
 }
 
-export default useGetUser;
+export default getUser;
