@@ -1,11 +1,15 @@
 import Link from "next/link";
-import CustomBottom from "../customBottom";
 import { ReactElement } from "react";
+import { usePathname } from 'next/navigation'
 
-function LinkCustom({ url, tittle, icon, onClick }: { url: string, tittle: string, icon?: ReactElement, onClick?: () => void }) {
+// function LinkCustom({ url, tittle, icon, onClick }: { url: string, tittle: string, icon?: ReactElement, onClick?: () => void }) {
+function LinkCustom({ url, children }: { url: string, children: ReactElement }) {
+    const pathName = usePathname()
+    console.log(pathName)
+    console.log(url)
     return (
-        <Link href={url}>
-            <CustomBottom tittle={tittle} icon={icon} onClick={onClick} />
+        <Link style={{ color: url === pathName ? "var(--first-theme)" : "white" }} href={url}>
+            {children}
         </Link>
     )
 }

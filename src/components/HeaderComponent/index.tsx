@@ -2,6 +2,7 @@ import Style from "./headerComponent.module.css"
 import LoginIcon from '@mui/icons-material/Login';
 import LinkCustom from '../LinkCustom';
 import Link from "next/link";
+import CustomBottom from "../customBottom";
 function HeaderComponent() {
     return (
         <header className={Style.containerHeader}>
@@ -11,15 +12,25 @@ function HeaderComponent() {
                 </Link>
             </h1>
             <section className={Style.containerButtons}>
+                <span className={Style.linkHeader}>
+                    <LinkCustom url={"/"}>
+                        <p>Explore</p>
+                    </LinkCustom>
+                </span>
+                <span className={Style.linkHeader}>
+                    <LinkCustom url={"/saves"}>
+                        <p>Saves</p>
+                    </LinkCustom>
+                </span>
                 <LinkCustom
-                    url='/createAccount'
-                    tittle='Create Account'
-                />
+                    url='/createAccount'>
+                    <CustomBottom tittle={"Create Account"} />
+                </LinkCustom>
                 <LinkCustom
                     url='/singIn'
-                    tittle='Sing in'
-                    icon={<LoginIcon style={{ rotate: "180deg" }} />}
-                />
+                >
+                    <CustomBottom icon={<LoginIcon style={{ rotate: "180deg" }} />} tittle={"Sing in"} />
+                </LinkCustom>
             </section>
         </header>
     );
