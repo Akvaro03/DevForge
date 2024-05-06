@@ -27,7 +27,7 @@ function HeaderComponent() {
                     <CustomBottom tittle={"Create Account"} />
                 </LinkCustom>
                 <LinkCustom
-                    url='/singIn'
+                    url='/signIn'
                 >
                     <CustomBottom icon={<LoginIcon style={{ rotate: "180deg" }} />} tittle={"Sing in"} />
                 </LinkCustom>

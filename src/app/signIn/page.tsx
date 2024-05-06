@@ -14,6 +14,7 @@ function SingInPage() {
             <HeaderComponent />
             <div className="flex items-center justify-center h-[80vh]">
                 <FormUser
+                    type="signIn"
                     onSubmit={handleSubmit}
                     tittleComponent={<><span className="resalt">Sign</span> In</>}
                 />

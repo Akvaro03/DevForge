@@ -6,7 +6,7 @@ import Link from "next/link";
 import FormUserData from "@/types/FormUserData";
 
 
-function FormUser({ onSubmit, tittleComponent }: { onSubmit: (a: FormUserData) => void, tittleComponent: ReactElement }) {
+function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "createAccount", onSubmit: (a: FormUserData) => void, tittleComponent: ReactElement }) {
     const [formData, setFormData] = useState<FormUserData>({
         email: '',
         password: '',
@@ -23,10 +23,13 @@ function FormUser({ onSubmit, tittleComponent }: { onSubmit: (a: FormUserData) =
     const validateForm = () => {
         const errors: Partial<FormUserData> = {};
         if (!formData.email.trim()) {
-            errors.email = 'El email es requerido';
+            errors.email = 'The Email is required';
         }
         if (!formData.password.trim()) {
-            errors.password = 'La contraseña es requerida';
+            errors.password = 'The Password is required';
+        }
+        if (type === "createAccount" && !formData.username?.trim()) {
+            errors.username = 'The Username is required';
         }
         setFormErrors(errors)
         return Object.keys(errors).length === 0;
@@ -43,6 +46,7 @@ function FormUser({ onSubmit, tittleComponent }: { onSubmit: (a: FormUserData) =
         const initialValues: FormUserData = {
             email: (document.getElementById('email') as HTMLInputElement)?.value || '',
             password: (document.getElementById('email') as HTMLInputElement)?.value || '',
+            username: (document.getElementById('username') as HTMLInputElement)?.value || ''
         };
         setFormData(initialValues);
     }, []);
@@ -62,14 +66,22 @@ function FormUser({ onSubmit, tittleComponent }: { onSubmit: (a: FormUserData) =
                     <label htmlFor="password">Pass<span className={Style.resalt}>word</span></label>
                     <CustomInput defaultValue={formData.password} onChange={handleInputChange} name="password" id="password" type="password" />
                 </div>
+                {type === "createAccount" && (
+                    <div className={Style.inputForm}>
+                        <label htmlFor="password"><span className={Style.resalt}>User</span>name</label>
+                        <CustomInput defaultValue={formData.username} onChange={handleInputChange} name="username" id="username" type="text" />
+                    </div>
+                )}
                 <article className={Style.containerBottoms}>
                     <motion.button whileHover={{ scale: .95 }} type="submit">
                         {tittleComponent}
                     </motion.button>
-                    <div className={Style.containerLinks}>
-                        <Link href={"/recoveryPassword"}>Forgot Password?</Link>
-                        <Link href={"/createAccount"}>Create Account</Link>
-                    </div>
+                    {type === "signIn" && (
+                        <div className={Style.containerLinks}>
+                            <Link href={"/recoveryPassword"}>Forgot Password?</Link>
+                            <Link href={"/createAccount"}>Create Account</Link>
+                        </div>
+                    )}
                 </article>
             </form>
             <div className="p-8 text-center">
@@ -77,8 +89,10 @@ function FormUser({ onSubmit, tittleComponent }: { onSubmit: (a: FormUserData) =
                     {formErrors ? formErrors.password : ""}
                 </h4>
                 <h4 className="text-center">
-
                     {formErrors ? formErrors.email : ""}
+                </h4>
+                <h4 className="text-center">
+                    {formErrors ? formErrors.username : ""}
                 </h4>
             </div>
         </motion.section>)
@@ -86,11 +100,13 @@ function FormUser({ onSubmit, tittleComponent }: { onSubmit: (a: FormUserData) =
 interface FormErrors {
     password?: string;
     email?: string;
+    username?: string;
 }
 
 const initialFormErrors: FormErrors = {
     password: undefined,
     email: undefined,
+    username: undefined,
 };
 
 export default FormUser;

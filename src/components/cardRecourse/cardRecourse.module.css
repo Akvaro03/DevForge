@@ -3,6 +3,7 @@
     border-radius: 16px;
     padding: 0;
     margin: 15px 10px;
+    cursor: pointer;
     display: inline-flex;
     width: 100%;
     flex-direction: column;
@@ -42,27 +43,33 @@
 
 .CardRecourse::after {
     position: absolute;
-    background: var(--background-start-rgb);;
+    background: var(--background-start-rgb);
+    ;
     inset: 0px;
     border-radius: 16px;
     content: "";
 }
-.CardRecourse:hover:after{
+
+.CardRecourse:hover:after {
     inset: 3px;
 }
-.containerTittle{
+
+.containerTittle {
     width: 80%;
     padding-top: 10px;
 }
+
 .tittleCard {
     text-align: left;
     font-size: 3vmin;
     font-weight: bold;
 }
-.subtitleCard{
+
+.subtitleCard {
     color: var(--subtitle-theme);
     font-size: 1.5vmin;
 }
+
 .descriptionCard {
     font-size: 1.7vmin;
     text-align: left;
@@ -72,6 +79,14 @@
     color: var(--subtitle-theme);
 }
 
-.joinCategories{
+.joinCategories {
     color: var(--first-theme);
+}
+
+.subtitleContainer {
+    display: flex;
+    width: 100%;
+    height: 2vh;
+    align-items: center;
+    justify-content: space-between;
 }

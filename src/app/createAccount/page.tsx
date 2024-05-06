@@ -14,6 +14,7 @@ function LoginPage() {
             <HeaderComponent />
             <div className="flex items-center justify-center h-[80vh]">
                 <FormUser
+                    type="createAccount"
                     onSubmit={handleSubmit}
                     tittleComponent={<><span className="resalt">Create</span> Account</>}
                 />
