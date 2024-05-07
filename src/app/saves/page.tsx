@@ -7,30 +7,46 @@ import Style from "./saves.module.css"
 import filterPinsByCategory from "@/utils/filterPinsByCategory";
 import ListPins from "@/template/listPins";
 import getUser from "@/db/getUser";
+import { useMemo } from "react";
 
 
 function SavesPage() {
     const { user } = getUser()
     const { categoriesSelected, editCategory } = useCategoriesSelected()
+ 
+    const categoriesFiltered = useMemo(() => {
+        const filteredCategories: string[] = [];
+        if (user?.saves) {
+            user.saves.forEach((data) => {
+                if (data.categories) {
+                    data.categories.forEach((categoryName) => {
+                        if (!filteredCategories.includes(categoryName)) {
+                            filteredCategories.push(categoryName);
+                        }
+                    });
+                }
+            });
+        }
+        return filteredCategories;
+    }, [user]);
 
-    const savesUser = user?.saves ? user.saves : []
+    const formateCategories = useMemo(() =>
+        categoriesFiltered.map((categoryName) => ({
+            name: categoryName,
+        })),
+        [categoriesFiltered]
+    );
 
-    const filteredData = filterPinsByCategory(savesUser, categoriesSelected);
-
-    const categoriesUser = user?.saves
-        .map(data => data.categories)?.flat()
-        .map(category => ({ name: category }))
-
-    const categoriesaaa = categoriesUser ? categoriesUser : []
-
+    const pinSaves = user?.saves ? user.saves : []
+    const pinFiltered = filterPinsByCategory(pinSaves, categoriesSelected);
     return (
         <main className="flex min-h-screen flex-col items-center p-8">
             <HeaderComponent />
             <section className={Style.headerPage}>
                 <h1 className={Style.tittlePage}>Saves Recourses</h1>
             </section>
-            {user && <TypesData categories={categoriesaaa} categoriesSelected={categoriesSelected} onClick={editCategory} />}
-            <ListPins Pins={filteredData} />
+            {user && <TypesData categories={formateCategories} categoriesSelected={categoriesSelected} onClick={editCategory} />}
+            <ListPins Pins={pinFiltered} />
         </main>
     );
 }
