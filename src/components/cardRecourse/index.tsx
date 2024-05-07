@@ -36,7 +36,11 @@ function CardRecourse({ name, description, url, categories }: recourseType) {
             style={{ height }}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
-            whileHover={{ scale: .92, }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            whileHover={{ scale: .92, }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: .2 }}
             onClick={(e) => handleCardClick(e)}
             className={Style.CardRecourse} >
             <div className={Style.containerTittle}>

@@ -3,14 +3,13 @@
     padding-top: 20px;
     column-gap: 2vw;
     row-gap: 1vw;
-    width: 85%;
-    height: 15vh;
+    width: 80%;
     overflow: hidden;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.arrowDropDown{
+.arrowDropDown {
     width: 50px;
     height: 50px;
     cursor: pointer;

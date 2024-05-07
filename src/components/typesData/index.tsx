@@ -3,39 +3,49 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Style from "./typeData.module.css"
 import ItemType from "../itemType";
-import { motion } from "framer-motion"
-import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion"
 import { categoryType } from '@/types/categoryTypes';
+import useCount from '@/hooks/useCount';
+
+const initialValue = 10;
+
 function TypesData({ categories, categoriesSelected, onClick, }: { categories: categoryType[], categoriesSelected: string[], onClick: (name: string) => void }) {
-    const [openTypes, SetOpenTypes] = useState(false)
+    const { count, addCount, restCount } = useCount(initialValue)
     return (
-        <>
+        <motion.section
+            layout
+            style={{ display: 'flex', flexDirection: "column", alignItems: "center" }}>
             <motion.section
-                animate={openTypes ? "open" : "closed"}
-                variants={variants} className={Style.containerTypes}>
-                {categories.map((type, key) => (
-                    <ItemType isSelect={categoriesSelected.includes(type.name)} type={type.name} key={key} onClick={onClick} />
-                ))}
+                layout
+                style={{ height: "auto" }}
+                className={Style.containerTypes}>
+                <AnimatePresence>
+                    {categories.slice(0, count).map((type, key) => (
+                        <ItemType
+                            isSelect={categoriesSelected.includes(type.name)}
+                            type={type.name}
+                            key={key}
+                            onClick={onClick} />
+                    ))}
+                </AnimatePresence>
             </motion.section >
-            {categories.length > 22 && (
-                <motion.article
-                    onClick={() => SetOpenTypes((prev: boolean) => !prev)}
-                    animate={openTypes ? "open" : "closed"}
-                    variants={variantsArrow}
-                    className={Style.arrowDropDown}
-                    transition={{ duration: 0.2 }}
-                    whileHover={openTypes ? hoverOpenArrow : hoverArrow}>
-                    <ArrowDropDownIcon />
-                </motion.article >
-            )}
-        </>
+            {
+                categories.length > 12 && (
+                    <motion.article
+                        onClick={() => count === initialValue ? addCount(categories.length - initialValue) : restCount()}
+                        animate={count !== initialValue ? "open" : "closed"}
+                        variants={variantsArrow}
+                        className={Style.arrowDropDown}
+                        transition={{ duration: 0.2 }}
+                        whileHover={count !== initialValue ? hoverOpenArrow : hoverArrow}>
+                        <ArrowDropDownIcon />
+                    </motion.article >
+                )
+            }
+        </motion.section>
     );
 }
 
-const variants = {
-    open: { height: "auto" },
-    closed: { height: "12vh" },
-}
 const variantsArrow = {
     open: { rotateZ: 180 },
     closed: { rotateZ: 0 },
