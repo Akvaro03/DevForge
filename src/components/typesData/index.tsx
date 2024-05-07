@@ -17,22 +17,24 @@ function TypesData({ categories, categoriesSelected, onClick, }: { categories: c
                     <ItemType isSelect={categoriesSelected.includes(type.name)} type={type.name} key={key} onClick={onClick} />
                 ))}
             </motion.section >
-            <motion.article
-                onClick={() => SetOpenTypes((prev: boolean) => !prev)}
-                animate={openTypes ? "open" : "closed"}
-                variants={variantsArrow}
-                className={Style.arrowDropDown}
-                transition={{ duration: 0.2 }}
-                whileHover={openTypes ? hoverOpenArrow : hoverArrow}>
-                <ArrowDropDownIcon />
-            </motion.article >
+            {categories.length > 22 && (
+                <motion.article
+                    onClick={() => SetOpenTypes((prev: boolean) => !prev)}
+                    animate={openTypes ? "open" : "closed"}
+                    variants={variantsArrow}
+                    className={Style.arrowDropDown}
+                    transition={{ duration: 0.2 }}
+                    whileHover={openTypes ? hoverOpenArrow : hoverArrow}>
+                    <ArrowDropDownIcon />
+                </motion.article >
+            )}
         </>
     );
 }
 
 const variants = {
     open: { height: "auto" },
-    closed: { height: "15vh" },
+    closed: { height: "12vh" },
 }
 const variantsArrow = {
     open: { rotateZ: 180 },

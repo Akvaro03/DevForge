@@ -1,9 +1,9 @@
-import { categoryType } from "./categoryTypes";
+import recourseType from "./recourseType";
 
 interface userType {
     password: string,
     email: string,
-    saves: categoryType[]
+    saves: recourseType[]
 }
 
 export default userType;

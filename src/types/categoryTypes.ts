@@ -4,7 +4,7 @@ interface categoryAllType {
 }
 interface categoryType {
     name: string,
-    slug: string
+    slug?: string
 }
 
 export type { categoryAllType, categoryType }
