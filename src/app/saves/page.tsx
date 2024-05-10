@@ -8,12 +8,14 @@ import filterPinsByCategory from "@/utils/filterPinsByCategory";
 import ListPins from "@/template/listPins";
 import getUser from "@/db/getUser";
 import { useMemo } from "react";
+import { User } from "firebase/auth";
+import userType from "@/types/userType";
 
 
 function SavesPage() {
-    const { user } = getUser()
+    const { user }: { user: userType | null } = getUser()
     const { categoriesSelected, editCategory } = useCategoriesSelected()
- 
+
     const categoriesFiltered = useMemo(() => {
         const filteredCategories: string[] = [];
         if (user?.saves) {

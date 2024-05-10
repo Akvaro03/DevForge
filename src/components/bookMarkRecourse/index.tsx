@@ -3,6 +3,7 @@ import userType from "@/types/userType";
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import getUser from "@/db/getUser";
+import { User } from "firebase/auth";
 
 function BookMarkRecourse({ isHover, nameRecourse }: { isHover: boolean, nameRecourse: string }) {
     const { user }: { user: userType | null } = getUser()

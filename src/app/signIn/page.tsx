@@ -1,12 +1,15 @@
 "use client"
 
 import HeaderComponent from "@/components/HeaderComponent";
+import signInEmail from "@/db/firebase/signInEmail";
+import signInGoogle from "@/db/firebase/singInGoogle";
 import FormUser from "@/template/formUser";
 import FormUserData from "@/types/FormUserData";
 
 function SingInPage() {
     const handleSubmit = (data: FormUserData) => {
-        console.log(data)
+        // signInEmail()
+        signInGoogle()
     }
 
     return (
