@@ -4,6 +4,7 @@
     color: var(--subtitle-theme);
     border-radius: 15px;
     padding: 12px;
+    cursor: pointer;
 }
 
 .input:hover {

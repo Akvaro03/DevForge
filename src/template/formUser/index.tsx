@@ -27,9 +27,6 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
         if (!formData.password.trim()) {
             errors.password = 'The Password is required';
         }
-        if (type === "createAccount" && !formData.username?.trim()) {
-            errors.username = 'The Username is required';
-        }
         setFormErrors(errors)
         return Object.keys(errors).length === 0;
     }
@@ -44,8 +41,7 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
     useEffect(() => {
         const initialValues: FormUserData = {
             email: (document.getElementById('email') as HTMLInputElement)?.value || '',
-            password: (document.getElementById('email') as HTMLInputElement)?.value || '',
-            username: (document.getElementById('username') as HTMLInputElement)?.value || ''
+            password: (document.getElementById('email') as HTMLInputElement)?.value || ''
         };
         setFormData(initialValues);
     }, []);
@@ -59,18 +55,12 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
             <form className={Style.formData} onSubmit={handleForm}>
                 <div className={Style.inputForm}>
                     <label htmlFor="email">Email <span className={Style.important}>/</span> Username</label>
-                    <CustomInput defaultValue={formData.email} onChange={handleInputChange} name="email" id="email" type="email" />
+                    <CustomInput autoComplete="home email" defaultValue={formData.email} onChange={handleInputChange} name="email" id="email" type="email" />
                 </div>
                 <div className={Style.inputForm}>
                     <label htmlFor="password">Pass<span className={Style.important}>word</span></label>
-                    <CustomInput defaultValue={formData.password} onChange={handleInputChange} name="password" id="password" type="password" />
+                    <CustomInput autoComplete="new-password" defaultValue={formData.password} onChange={handleInputChange} name="password" id="password" type="password" />
                 </div>
-                {type === "createAccount" && (
-                    <div className={Style.inputForm}>
-                        <label htmlFor="password"><span className={Style.important}>User</span>name</label>
-                        <CustomInput defaultValue={formData.username} onChange={handleInputChange} name="username" id="username" type="text" />
-                    </div>
-                )}
                 <article className={Style.containerBottoms}>
                     <motion.button whileHover={{ scale: .95 }} type="submit">
                         {tittleComponent}
@@ -90,22 +80,17 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
                 <h4 className="text-center">
                     {formErrors ? formErrors.email : ""}
                 </h4>
-                <h4 className="text-center">
-                    {formErrors ? formErrors.username : ""}
-                </h4>
             </div>
         </motion.section>)
 }
 interface FormErrors {
     password?: string;
     email?: string;
-    username?: string;
 }
 
 const initialFormErrors: FormErrors = {
     password: undefined,
-    email: undefined,
-    username: undefined,
+    email: undefined
 };
 
 export default FormUser;

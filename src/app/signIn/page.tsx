@@ -1,15 +1,22 @@
 "use client"
 
 import HeaderComponent from "@/components/HeaderComponent";
-import signInEmail from "@/db/firebase/signInEmail";
-import signInGoogle from "@/db/firebase/singInGoogle";
+import { auth } from "@/db/firebase/db";
 import FormUser from "@/template/formUser";
-import FormUserData from "@/types/FormUserData";
-
+import { useSignInWithGoogle, useSignInWithEmailAndPassword, useSignOut } from "react-firebase-hooks/auth"
 function SingInPage() {
-    const handleSubmit = (data: FormUserData) => {
-        // signInEmail()
-        signInGoogle()
+    const [createUserWithGoogle] = useSignInWithGoogle(auth)
+    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth)
+    const [signOut] = useSignOut(auth)
+    const handleSubmit = async ({ email, password }: { email: string, password: string }) => {
+        signOut()
+        try {
+            // const res = await createUserWithGoogle()(email, password)
+            const res = await signInWithEmailAndPassword(email, password)
+            console.log(res)
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     return (

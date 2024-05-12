@@ -1,15 +1,17 @@
-// Import the functions you need from the SDKs you need
-import { FirebaseOptions, initializeApp } from "firebase/app";
-const firebaseConfig: FirebaseOptions = {
-    apiKey:             "AIzaSyD5LvSDSDDBiogEBRH8lxfv_foQCd78T_o",
-    authDomain:         "devforges-6fafa.firebaseapp.com",
-    projectId:          "devforges-6fafa",
-    storageBucket:      "devforges-6fafa.appspot.com",
-    messagingSenderId:  "945757791739",
-    appId:              "1:945757791739:web:c51cc9080ab15e98a9975e",
-    measurementId:      "G-4LDYXR511W"
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAuth } from 'firebase/auth'
+
+const firebaseConfig = {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
 
-export default app;
+const auth = getAuth(app)
+
+export { app, auth }

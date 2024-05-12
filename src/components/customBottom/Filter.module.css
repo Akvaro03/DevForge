@@ -1,4 +1,4 @@
-.containerFilter {
+.customBottom {
     border: 1px solid black;
     padding: 10px;
     min-width: 120px;
@@ -7,4 +7,5 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    cursor: pointer;
 }

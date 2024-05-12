@@ -1,12 +1,21 @@
 "use client"
 
 import HeaderComponent from "@/components/HeaderComponent";
+import { auth } from "@/db/firebase/db";
 import FormUser from "@/template/formUser";
 import FormUserData from "@/types/FormUserData";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 function LoginPage() {
-    const handleSubmit = (data: FormUserData) => {
-        console.log(data)
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth)
+
+    const handleSubmit = async ({ email, password }: FormUserData) => {
+        try {
+            const res = await createUserWithEmailAndPassword(email, password);
+            console.log(res)
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     return (

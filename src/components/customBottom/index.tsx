@@ -10,7 +10,7 @@ function CustomBottom({ tittle, icon, onClick }: { tittle: string, icon?: ReactE
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: .9 }}
             onClick={onClick}
-            className={Style.containerFilter}>
+            className={Style.customBottom}>
             {icon}
             {tittle}
         </motion.article>
