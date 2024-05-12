@@ -22,7 +22,7 @@ function CardRecourse({ name, description, url, categories }: recourseType) {
     const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
         if (target.tagName === 'path' || target.tagName === 'svg') {
-            saveRecourse(name)
+            saveRecourse({ name, description, url, categories})
         } else {
             window.open(url);
         }
