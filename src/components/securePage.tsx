@@ -14,7 +14,7 @@ function SecurePage({ children }: { children: ReactNode }) {
         } else if (!isLoading && User && urlLogOut.includes(url)) {
             router.push("/saves");
         }
-    }, [isLoading, url]);
+    }, [isLoading, User, url, router]);
 
     return children;
 }
