@@ -1,14 +1,16 @@
-"use server"
-import userType from "@/types/userType";
-import { redirect } from "next/navigation";
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from "./firebase/db";
 
-function saveRecourse(nameRecourse: string) {
+function useSaveRecourse(): (a: string) => void {
 
-    const { user }: { user: userType | null } = { user: null }
+    const [user] = useAuthState(auth)
 
-    if (!user) {
-        redirect("/signIn")
+    function saveRecourse(nameRecourse: string): void {
+        console.log(nameRecourse)
+        console.log(user)
+
     }
+    return saveRecourse
 }
 
-export default saveRecourse;
+export default useSaveRecourse;

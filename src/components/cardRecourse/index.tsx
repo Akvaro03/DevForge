@@ -6,11 +6,13 @@ import recourseType from "@/types/recourseType";
 import Style from "./cardRecourse.module.css"
 import { motion } from "framer-motion"
 import BookMarkRecourse from "../bookMarkRecourse";
-import saveRecourse from "@/db/saveRecourse";
+import useSaveRecourse from "@/db/saveRecourse";
 
 function CardRecourse({ name, description, url, categories }: recourseType) {
     const [isHover, setIsHover] = useState(false)
     const [height, setHeight] = useState(250);
+    const saveRecourse = useSaveRecourse()
+
     const categoriesString = categories.map((str, index) => (
         <React.Fragment key={index}>
             {str}
