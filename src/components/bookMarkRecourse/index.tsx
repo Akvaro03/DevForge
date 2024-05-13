@@ -1,10 +1,7 @@
 import { motion } from "framer-motion"
-import userType from "@/types/userType";
-import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 function BookMarkRecourse({ isHover, nameRecourse }: { isHover: boolean, nameRecourse: string }) {
-    const { user }: { user: userType | null } = { user: null }
 
     // const recourseSave = user?.saves ? user?.saves.map(recourse => recourse.name) : []
 

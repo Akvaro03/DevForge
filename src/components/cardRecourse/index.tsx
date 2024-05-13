@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import BookMarkRecourse from "../bookMarkRecourse";
 import useSaveRecourse from "@/db/saveRecourse";
 
-function CardRecourse({ name, description, url, categories }: recourseType) {
+function CardRecourse({ name, description, url, categories, resetPins }: recourseType & { resetPins: () => void }) {
     const [isHover, setIsHover] = useState(false)
     const [height, setHeight] = useState(250);
     const saveRecourse = useSaveRecourse()
@@ -22,7 +22,8 @@ function CardRecourse({ name, description, url, categories }: recourseType) {
     const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
         if (target.tagName === 'path' || target.tagName === 'svg') {
-            saveRecourse({ name, description, url, categories})
+            saveRecourse({ name, description, url, categories })
+            resetPins()
         } else {
             window.open(url);
         }
