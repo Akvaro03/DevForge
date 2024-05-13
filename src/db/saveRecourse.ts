@@ -16,12 +16,18 @@ function useSaveRecourse(): (pin: recourseType) => void {
         try {
             const userSaves = await getFirebase(userUid)
                 .then(data => data as { saves: Array<recourseType> })
+                .then(data => data.saves)
+            const isSaved = userSaves.some(pinSave => pinSave.name === pin.name)
 
+            if (isSaved) {
+                return postFirebase(user?.uid, {
+                    saves: userSaves.filter(pinSaves => pinSaves.name != pin.name)
+                })
+            }
 
-            // postFirebase(user?.uid, {
-            //     saves: [pin]
-            // })
-
+            postFirebase(user?.uid, {
+                saves: [...userSaves, pin]
+            })
         } catch (e) {
             console.error("Error adding document: ", e);
         }
