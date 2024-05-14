@@ -7,16 +7,16 @@ import Style from "./saves.module.css"
 import filterPinsByCategory from "@/utils/filterPinsByCategory";
 import ListPins from "@/template/listPins";
 import { useMemo } from "react";
-import useGetFirebase from "@/hooks/useGetFirebase";
+import { useGlobalContext } from "../context/store";
 
 function SavesPage() {
     const { categoriesSelected, editCategory } = useCategoriesSelected()
-    const { pins, resetPins } = useGetFirebase()
+    const { pinSave } = useGlobalContext()
 
     const categoriesFiltered = useMemo(() => {
         const filteredCategories: string[] = [];
-        if (pins) {
-            pins.forEach((data) => {
+        if (pinSave) {
+            pinSave.forEach((data) => {
                 if (data.categories) {
                     data.categories.forEach((categoryName) => {
                         if (!filteredCategories.includes(categoryName)) {
@@ -27,7 +27,7 @@ function SavesPage() {
             });
         }
         return filteredCategories;
-    }, [pins]);
+    }, [pinSave]);
 
     const formateCategories = useMemo(() =>
         categoriesFiltered.map((categoryName) => ({
@@ -36,7 +36,7 @@ function SavesPage() {
         [categoriesFiltered]
     );
 
-    const pinFiltered = filterPinsByCategory(pins, categoriesSelected);
+    const pinFiltered = filterPinsByCategory(pinSave, categoriesSelected);
 
     return (
         <main className="flex min-h-screen flex-col items-center p-8">
@@ -44,13 +44,13 @@ function SavesPage() {
             <section className={Style.headerPage}>
                 <h1 className={Style.tittlePage}>Saves Recourses</h1>
             </section>
-            {pins[0] ? (
+            {pinSave[0] ? (
                 <>
                     <TypesData categories={formateCategories} categoriesSelected={categoriesSelected} onClick={editCategory} />
-                    <ListPins resetPins={resetPins} Pins={pinFiltered} />
+                    <ListPins Pins={pinFiltered} />
                 </>
             ) : (
-                <p>{pins.length}</p>
+                <p>{pinSave.length}</p>
             )}
         </main>
     );

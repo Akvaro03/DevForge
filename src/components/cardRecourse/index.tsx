@@ -7,8 +7,11 @@ import Style from "./cardRecourse.module.css"
 import { motion } from "framer-motion"
 import BookMarkRecourse from "../bookMarkRecourse";
 import useSaveRecourse from "@/db/saveRecourse";
+import { useGlobalContext } from "@/app/context/store";
 
-function CardRecourse({ name, description, url, categories, resetPins }: recourseType & { resetPins: () => void }) {
+function CardRecourse({ name, description, url, categories }: recourseType) {
+    const { resetPins } = useGlobalContext()
+
     const [isHover, setIsHover] = useState(false)
     const [height, setHeight] = useState(250);
     const saveRecourse = useSaveRecourse()

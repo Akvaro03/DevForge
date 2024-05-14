@@ -24,7 +24,10 @@ function useGetFirebase() {
 
 
 function getSaves(user: User | null | undefined, setPins: (a: Array<recourseType>) => void) {
-    if (!user) return
+    if (!user) {
+        setPins([])
+        return
+    }
     const userUid = user.uid
     getFirebase(userUid)
         .then(data => data as { saves: Array<recourseType> })

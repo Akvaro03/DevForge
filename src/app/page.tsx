@@ -8,14 +8,8 @@ import useCategoriesSelected from "@/hooks/useCategoriesSelected";
 import ListPins from "../template/listPins";
 import filterPinsByCategory from "@/utils/filterPinsByCategory";
 import categories from "@/assets/datasheet/categories.json"
-import useGetFirebase from "@/hooks/useGetFirebase";
-import { useGlobalContext } from "./context/store";
 
 export default function Home() {
-  const { pinSave, user } = useGlobalContext()
-  console.log(pinSave)
-  console.log(user)
-  const { pins, resetPins } = useGetFirebase()
   const { categoriesSelected, editCategory } = useCategoriesSelected()
   const filteredData = filterPinsByCategory(RecoursesData.data, categoriesSelected);
 
@@ -26,7 +20,7 @@ export default function Home() {
         <h1 className={Style.tittlePage}>Explore Recourses</h1>
       </section>
       <TypesData categories={categories.data} categoriesSelected={categoriesSelected} onClick={editCategory} />
-      <ListPins resetPins={resetPins} Pins={filteredData} />
+      <ListPins Pins={filteredData} />
     </main>
   );
 }

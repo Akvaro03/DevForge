@@ -1,9 +1,11 @@
 import { motion } from "framer-motion"
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import { useGlobalContext } from "@/app/context/store";
 
 function BookMarkRecourse({ isHover, nameRecourse }: { isHover: boolean, nameRecourse: string }) {
-
-    // const recourseSave = user?.saves ? user?.saves.map(recourse => recourse.name) : []
+    const { isPinSave } = useGlobalContext()
+    const isSave: boolean = isPinSave(nameRecourse)
 
     return (
         isHover && (
@@ -13,12 +15,11 @@ function BookMarkRecourse({ isHover, nameRecourse }: { isHover: boolean, nameRec
                 style={{ cursor: "pointer" }}
                 whileHover={{ scale: 1.1, color: "var(--second-theme)" }}
             >
-                <BookmarkIcon sx={{ color: "var(--second-theme)" }} />
-                {/* {recourseSave.includes(nameRecourse) ? (
+                {isSave ? (
                     <BookmarkIcon sx={{ color: "var(--second-theme)" }} />
                 ) : (
                     <BookmarkBorderOutlinedIcon />
-                )} */}
+                )}
             </motion.span>
         )
     )
