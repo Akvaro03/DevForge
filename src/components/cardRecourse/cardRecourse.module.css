@@ -28,7 +28,7 @@
 }
 
 .CardRecourse:hover:before {
-    animation: rotate 4s linear infinite;
+    animation: rotate 1.5s ease-in-out infinite;
 }
 
 @keyframes rotate {
@@ -37,7 +37,7 @@
     }
 
     to {
-        transform: rotate(520deg);
+        transform: rotate(180deg);
     }
 }
 

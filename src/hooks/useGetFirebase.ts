@@ -16,7 +16,7 @@ function useGetFirebase() {
     function resetPins() {
         setTimeout(() => {
             getSaves(user, setPins)
-        }, 500);
+        }, 100);
     }
 
     return { pins, resetPins }

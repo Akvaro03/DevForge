@@ -23,7 +23,7 @@ DevForge es una plataforma en línea diseñada para ayudar a los programadores a
    
 ## Tecnologías Utilizadas
 
-- **Frontend**: React.js, Redux, Material-UI, Next.js, Motion
+- **Frontend**: React.js, Context, Material-UI, Next.js, Motion
 - **Backend**: Node.js, Express.js, Firebase
 - **Autenticación**: JWT (JSON Web Tokens)
 - **Notificaciones en Tiempo Real**: WebSockets (Socket.io)

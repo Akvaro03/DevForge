@@ -13,8 +13,10 @@ function LoginPage() {
         try {
             const res = await createUserWithEmailAndPassword(email, password);
             console.log(res)
+            console.log("entro")
         } catch (e) {
             console.error(e)
+            console.log("salio")
         }
     }
 

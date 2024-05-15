@@ -1,12 +1,17 @@
-import CustomInput from "@/components/CustomInput";
+import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth"
 import { ReactElement, useEffect, useState } from "react";
+import GoogleIcon from '@mui/icons-material/Google';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import CustomInput from "@/components/CustomInput";
+import FormUserData from "@/types/FormUserData";
 import Style from "./FormUser.module.css"
 import { motion } from "framer-motion"
 import Link from "next/link";
-import FormUserData from "@/types/FormUserData";
-
-
+import { auth } from "@/db/firebase/db";
 function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "createAccount", onSubmit: (a: FormUserData) => void, tittleComponent: ReactElement }) {
+    const [signInGithub] = useSignInWithGithub(auth)
+    const [signInGoogle] = useSignInWithGoogle(auth)
+
     const [formData, setFormData] = useState<FormUserData>({
         email: '',
         password: '',
@@ -71,6 +76,10 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
                             <Link href={"/createAccount"}>Create Account</Link>
                         </div>
                     )}
+                    <div className={Style.iconsLogin}>
+                        <GoogleIcon onClick={() => signInGoogle()} />
+                        <GitHubIcon onClick={() => signInGithub()} />
+                    </div>
                 </article>
             </form>
             <div className="p-8 text-center">

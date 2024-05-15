@@ -62,7 +62,12 @@
     padding-top: 10px;
 }
 
-.containerLinks a:hover {
-    color: var(--second-theme);
+.containerBottoms div :hover {
+    cursor: pointer;
+    color: var(--first-theme);
     transition: .2s;
+}
+
+.iconsLogin{
+    justify-content: space-around !important
 }
