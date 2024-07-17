@@ -1,19 +1,29 @@
 "use client"
 
+import { useSignInWithEmailAndPassword, useSignOut } from "react-firebase-hooks/auth"
+import AlertsComponents from "@/components/AlertsComponents";
 import HeaderComponent from "@/components/HeaderComponent";
-import { auth } from "@/db/firebase/db";
 import FormUser from "@/template/formUser";
-import { useSignInWithGoogle, useSignInWithEmailAndPassword, useSignOut } from "react-firebase-hooks/auth"
+import { auth } from "@/db/firebase/db";
+import { useState } from "react";
+import handleAlerts from "@/utils/handleAlerts";
+import typesAlerts from "@/types/typesAlerts";
+
+interface Alert {
+    text: string;
+}
+
 function SingInPage() {
-    const [createUserWithGoogle] = useSignInWithGoogle(auth)
     const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth)
+    const [alerts, setAlerts] = useState<Alert[]>([]);
     const [signOut] = useSignOut(auth)
+
     const handleSubmit = async ({ email, password }: { email: string, password: string }) => {
         signOut()
         try {
-            // const res = await createUserWithGoogle()(email, password)
             const res = await signInWithEmailAndPassword(email, password)
-            console.log(res)
+
+            handleAlerts(setAlerts, res === undefined ? typesAlerts.NotExist : typesAlerts.Login)
         } catch (e) {
             console.log(e)
         }
@@ -29,6 +39,7 @@ function SingInPage() {
                     tittleComponent={<><span className="important">Sign</span> In</>}
                 />
             </div>
+            <AlertsComponents alerts={alerts} />
         </main>
     );
 }
