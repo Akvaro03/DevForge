@@ -1,0 +1,12 @@
+.alertBoxTrue,
+.alertBoxFailed{
+    padding: 3vmin;
+    border-radius: 15px;
+}
+
+.alertBoxFailed{
+    background-color: #FF6600;
+}
+.alertBoxTrue{
+    background-color: #FF6600;
+}

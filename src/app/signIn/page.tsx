@@ -22,7 +22,6 @@ function SingInPage() {
         signOut()
         try {
             const res = await signInWithEmailAndPassword(email, password)
-
             handleAlerts(setAlerts, res === undefined ? typesAlerts.NotExist : typesAlerts.Login)
         } catch (e) {
             console.log(e)

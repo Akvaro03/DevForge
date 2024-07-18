@@ -14,7 +14,6 @@ function LoginPage() {
             const res = await createUserWithEmailAndPassword(email, password);
             console.log(res)
         } catch (e) {
-            console.log("salio")
             console.error(e)
         }
     }
