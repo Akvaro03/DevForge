@@ -50,7 +50,9 @@ function SavesPage() {
                     <ListPins Pins={pinFiltered} />
                 </>
             ) : (
-                <p>{pinSave.length}</p>
+                <div className="flex items-center justify-center h-[50vh]">
+                    <p>There are no saved resources</p>
+                </div>
             )}
         </main>
     );

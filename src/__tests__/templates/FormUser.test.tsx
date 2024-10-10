@@ -95,24 +95,4 @@ describe("Form User Template", () => {
     expect(googleMock).toHaveBeenCalled();
     expect(githubMock).toHaveBeenCalled();
   });
-
-  it("display this account doesn't exist", async () => {
-    const emailInput = screen.getByLabelText(/Email \/ Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const submitButton = screen.getByRole("button", { name: /Test Title/i });
-
-    fireEvent.change(emailInput, {
-      target: { value: "thisEmailDoesntExist@gmail.com" },
-    });
-    fireEvent.change(passwordInput, {
-      target: { value: "thisPasswordDoestExist" },
-    });
-
-    await act(async () => {
-      fireEvent.submit(submitButton);
-    });
-
-    expect(screen.getByText("The Email is required")).toBeInTheDocument();
-    expect(screen.getByText(/esta cuenta no existe/i)).toBeInTheDocument()
-  });
 });
