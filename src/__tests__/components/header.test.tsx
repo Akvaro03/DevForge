@@ -1,5 +1,5 @@
 import HeaderComponent from "@/components/HeaderComponent";
-import { act, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 
 jest.mock("react-firebase-hooks/auth", () => ({
@@ -53,4 +53,17 @@ describe("Header Component", () => {
     });
     expect(screen.getByText(/Log Out/i)).toBeInTheDocument();
   });
+
+  test('calls signOut function when log out button is clicked', () => {
+    const signOutMock = jest.fn();
+    jest.spyOn(require('react-firebase-hooks/auth'), 'useSignOut').mockReturnValue([signOutMock]);
+
+    render(<HeaderComponent />);
+    
+    fireEvent.click(screen.getByText(/Log Out/i));
+
+    expect(signOutMock).toHaveBeenCalled();
+  });
+
+
 });
