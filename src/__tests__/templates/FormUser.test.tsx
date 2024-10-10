@@ -55,9 +55,7 @@ describe("Form User Template", () => {
     fireEvent.change(passwordInput, { target: { value: "password123" } });
 
     // Simular envío de formulario
-    await act(async () => {
-      fireEvent.submit(submitButton);
-    });
+    fireEvent.submit(submitButton);
 
     expect(onSubmitMock).toHaveBeenCalledWith({
       email: "test@example.com",
@@ -69,9 +67,7 @@ describe("Form User Template", () => {
     setup("signIn");
     const submitButton = screen.getByRole("button", { name: /Test Title/i });
 
-    await act(async () => {
-      fireEvent.submit(submitButton);
-    });
+    fireEvent.submit(submitButton);
     // Verificar que los mensajes de error aparezcan
     expect(screen.getByText("The Email is required")).toBeInTheDocument();
     expect(screen.getByText("The Password is required")).toBeInTheDocument();

@@ -40,7 +40,7 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
         if (validateForm()) {
             onSubmit(formData)
         } else {
-            console.log("El formulario esta mal")
+            return
         }
     }
     useEffect(() => {

@@ -17,9 +17,7 @@ describe("Header Component", () => {
 
     // Simula que useSignOut devuelve una función mockeada para cerrar sesión
     (useSignOut as jest.Mock).mockReturnValue([jest.fn()]);
-    await act(async () => {
-      render(<HeaderComponent />);
-    });
+    render(<HeaderComponent />);
 
     expect(screen.getByText(/Dev/i)).toBeInTheDocument();
     expect(screen.getByText(/Forges/i)).toBeInTheDocument();
@@ -33,9 +31,7 @@ describe("Header Component", () => {
     // Simula que useSignOut devuelve una función mockeada para cerrar sesión
     (useSignOut as jest.Mock).mockReturnValue([jest.fn()]);
 
-    await act(async () => {
-      render(<HeaderComponent />);
-    });
+    render(<HeaderComponent />);
 
     expect(screen.getByText(/Create Account/i)).toBeInTheDocument();
     expect(screen.getByText(/Sing in/i)).toBeInTheDocument();
@@ -48,22 +44,20 @@ describe("Header Component", () => {
     // Simula que useSignOut devuelve una función mockeada para cerrar sesión
     (useSignOut as jest.Mock).mockReturnValue([jest.fn()]);
 
-    await act(async () => {
-      render(<HeaderComponent />);
-    });
+    render(<HeaderComponent />);
     expect(screen.getByText(/Log Out/i)).toBeInTheDocument();
   });
 
-  test('calls signOut function when log out button is clicked', () => {
+  test("calls signOut function when log out button is clicked", () => {
     const signOutMock = jest.fn();
-    jest.spyOn(require('react-firebase-hooks/auth'), 'useSignOut').mockReturnValue([signOutMock]);
+    jest
+      .spyOn(require("react-firebase-hooks/auth"), "useSignOut")
+      .mockReturnValue([signOutMock]);
 
     render(<HeaderComponent />);
-    
+
     fireEvent.click(screen.getByText(/Log Out/i));
 
     expect(signOutMock).toHaveBeenCalled();
   });
-
-
 });
