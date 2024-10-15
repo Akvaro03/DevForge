@@ -39,7 +39,7 @@ function SavesPage() {
     const pinFiltered = filterPinsByCategory(pinSave, categoriesSelected);
 
     return (
-        <main className="flex min-h-screen flex-col items-center p-8">
+        <main className="flex min-h-screen flex-col items-center py-8">
             <HeaderComponent />
             <section className={Style.headerPage}>
                 <h1 className={Style.tittlePage}>Saves Recourses</h1>

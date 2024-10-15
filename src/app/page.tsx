@@ -14,7 +14,7 @@ export default function Home() {
   const filteredData = filterPinsByCategory(RecoursesData.data, categoriesSelected);
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-8">
+    <main className="flex min-h-screen flex-col items-center py-8">
       <HeaderComponent />
       <section className={Style.headerPage}>
         <h1 className={Style.tittlePage}>Explore Recourses</h1>

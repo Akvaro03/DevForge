@@ -6,12 +6,6 @@ import recourseType from "@/types/recourseType"
 import { User } from "firebase/auth"
 import { Dispatch, ReactElement, ReactNode, createContext, useContext, useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
-// interface ContextProps {
-//     user: User | null | undefined,
-//     setUser: Dispatch<SetStateAction<User | null | undefined>>,
-//     pinSave: recourseType[],
-//     setPinSave: Dispatch<SetStateAction<recourseType[]>>
-// }
 interface ContextProps {
     user: User | null | undefined,
     pinSave: recourseType[],
