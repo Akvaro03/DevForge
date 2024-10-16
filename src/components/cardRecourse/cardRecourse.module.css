@@ -1,92 +1,97 @@
 .CardRecourse {
-    background: var(--background-start-rgb);
-    border-radius: 16px;
-    padding: 0;
-    margin: 15px 10px;
-    cursor: pointer;
-    display: inline-flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: calc(100% + 50px);
-    position: relative;
-    overflow: hidden;
+  background: var(--background-start-rgb);
+  border-radius: 16px;
+  padding: 0;
+  margin: 15px 10px;
+  cursor: pointer;
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: calc(100% + 50px);
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #383838;
 }
 
 .CardRecourse * {
-    z-index: 3;
+  z-index: 3;
 }
 
 .CardRecourse::before {
-    position: absolute;
-    content: "";
-    width: 50%;
-    border-radius: 16px;
-    height: 500%;
-    background: linear-gradient(to bottom, var(--first-theme) 15%, var(--second-theme) 50%, var(--first-theme) 100%);
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 500%;
+  background: linear-gradient(
+    to bottom,
+    var(--first-theme) 15%,
+    var(--second-theme) 50%,
+    var(--first-theme) 100%
+  );
 }
 
 .CardRecourse:hover:before {
-    animation: rotate 1.5s ease-in-out infinite;
+  animation: rotate 1.5s ease-in-out infinite;
 }
 
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(180deg);
-    }
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 .CardRecourse::after {
-    position: absolute;
-    background: var(--background-start-rgb);
-    ;
-    inset: 0px;
-    border-radius: 16px;
-    content: "";
+  position: absolute;
+  background: var(--background-start-rgb);
+  inset: 0px;
+  border-radius: 10px;
+  content: "";
 }
 
 .CardRecourse:hover:after {
-    inset: 3px;
+  inset: 3px;
 }
 
 .containerTittle {
-    width: 80%;
-    padding-top: 10px;
+  width: 80%;
+  padding-top: 10px;
 }
 
 .tittleCard {
-    text-align: left;
-    font-size: 3vmin;
-    font-weight: bold;
+  text-align: left;
+  font-size: 3vmin;
+  color: var(--white-theme);
+  font-weight: bold;
 }
 
 .subtitleCard {
-    color: var(--subtitle-theme);
-    font-size: 1.5vmin;
+  color: var(--subtitle-theme);
+  font-size: 1.5vmin;
 }
 
 .descriptionCard {
-    font-size: 1.7vmin;
-    text-align: left;
-    width: 80%;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    color: var(--subtitle-theme);
+  font-size: 1.7vmin;
+  text-align: left;
+  width: 80%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: var(--subtitle-theme);
 }
 
 .joinCategories {
-    color: var(--first-theme);
+  color: var(--first-theme);
 }
 
 .subtitleContainer {
-    display: flex;
-    width: 100%;
-    height: 2vh;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  height: 2vh;
+  align-items: center;
+  justify-content: space-between;
 }
