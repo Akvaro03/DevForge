@@ -1,11 +1,17 @@
 .customBottom {
-    border: 1px solid black;
+    border: 1px solid var(--first-theme);
     padding: 10px;
     min-width: 120px;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.123) 0px 5px 15px;
+    box-shadow: rgba(255, 188, 111, 0.113) 0px 5px 15px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
+}
+
+.customBottom:hover{
+    color: #f60; /* Cambia el color del texto a naranja */
+    border-color: #f60; /* Cambia el borde a naranja */
+    transition: all 0.3s ease;
 }

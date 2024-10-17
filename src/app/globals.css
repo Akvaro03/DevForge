@@ -15,7 +15,9 @@
 
 body {
   color: var(--white-theme);
-  background: var(--background-rgb);
+  /* background: var(--background-rgb); */
+  background: radial-gradient(circle, #252729 0%, #17181a 70%);
+
 }
 .important{
   color: var(--first-theme);
