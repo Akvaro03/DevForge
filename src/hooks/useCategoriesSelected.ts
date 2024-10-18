@@ -9,7 +9,7 @@ function useCategoriesSelected() {
                 prev.filter(cat => cat !== name) :
                 [...prev, name]);
     }, []);
-
+ 
 
     return { categoriesSelected, editCategory }
 
