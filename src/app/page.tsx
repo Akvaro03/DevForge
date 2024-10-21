@@ -8,9 +8,10 @@ import useCategoriesSelected from "@/hooks/useCategoriesSelected";
 import ListPins from "../template/listPins";
 import filterPinsByCategory from "@/utils/filterPinsByCategory";
 import categories from "@/assets/datasheet/categories.json";
-
+import SearchOffIcon from "@mui/icons-material/SearchOff";
+import CustomBottom from "@/components/customBottom";
 export default function Home() {
-  const { categoriesSelected, editCategory } = useCategoriesSelected();
+  const { categoriesSelected, editCategory, clearCategories } = useCategoriesSelected();
   const filteredData = filterPinsByCategory(
     RecoursesData.data,
     categoriesSelected
@@ -21,6 +22,7 @@ export default function Home() {
       <HeaderComponent />
       <section className={Style.headerPage}>
         <h1 className={Style.tittlePage}>Explore Recourses</h1>
+        {categoriesSelected[0] && <CustomBottom onClick={clearCategories} icon={<SearchOffIcon />} />}
       </section>
       <TypesData
         categories={categories.data}

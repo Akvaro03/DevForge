@@ -9,9 +9,12 @@ function useCategoriesSelected() {
                 prev.filter(cat => cat !== name) :
                 [...prev, name]);
     }, []);
- 
+    
+    const clearCategories = useCallback(() =>{
+        setCategoriesSelected([])
+    },[])
 
-    return { categoriesSelected, editCategory }
+    return { categoriesSelected, editCategory, clearCategories }
 
 }
 
