@@ -2,7 +2,6 @@
 .customBottom {
   border: 1px solid var(--first-theme);
   padding: 10px;
-  margin-top: 1rem;
   border-radius: 10px;
   box-shadow: rgba(255, 188, 111, 0.113) 0px 5px 15px;
   display: flex;
@@ -13,6 +12,7 @@
 
 .customBottomCircle {
   border-radius: 80px;
+  margin-top: 1rem;
 }
 .customBottom {
   min-width: 120px;

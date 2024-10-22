@@ -22,7 +22,7 @@ export default function Home() {
       <HeaderComponent />
       <section className={Style.headerPage}>
         <h1 className={Style.tittlePage}>Explore Recourses</h1>
-        {categoriesSelected[0] && <CustomBottom onClick={clearCategories} icon={<SearchOffIcon />} />}
+        {categoriesSelected[0] && <CustomBottom isCircle onClick={clearCategories} icon={<SearchOffIcon />} />}
       </section>
       <TypesData
         categories={categories.data}

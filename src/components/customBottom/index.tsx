@@ -4,13 +4,19 @@ import { ReactElement } from "react";
 import Style from "./Filter.module.css";
 import { motion } from "framer-motion";
 
-function CustomBottom({ tittle, icon, onClick, isCircle }: HeaderProps) {
+function CustomBottom({
+  tittle,
+  icon,
+  onClick,
+  isCircle = false,
+}: HeaderProps) {
+  console.log(isCircle);
   return (
     <motion.article
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
       onClick={onClick}
-      className={isCircle ? Style.customBottom : Style.customBottomCircle}
+      className={isCircle ? Style.customBottomCircle : Style.customBottom}
     >
       {icon}
       {tittle}
