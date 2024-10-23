@@ -23,10 +23,21 @@ function SingInPage() {
         try {
             const res = await signInWithEmailAndPassword(email, password)
             handleAlerts(setAlerts, res === undefined ? typesAlerts.NotExist : typesAlerts.Login)
-        } catch (e) {
-            console.log(e)
-        }
-    }
+        } catch (e: any) {
+            // Tipo `any` para acceder a las propiedades del error
+            console.error(e);
+            if (e.code === "auth/email-already-in-use") {
+              console.log("Este correo ya está en uso.");
+            } else if (e.code === "auth/invalid-email") {
+              console.log("El formato del correo no es válido.");
+            } else if (e.code === "auth/weak-password") {
+              console.log("La contraseña es demasiado débil.");
+            } else {
+              console.log("Error al crear la cuenta. Inténtalo nuevamente.");
+            }
+            console.log("No hay tipo");
+          }
+          }
 
     return (
         <main className="flex min-h-screen flex-col items-center py-8">

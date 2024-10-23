@@ -10,7 +10,6 @@ function CustomBottom({
   onClick,
   isCircle = false,
 }: HeaderProps) {
-  console.log(isCircle);
   return (
     <motion.article
       whileHover={{ scale: 1.05 }}
