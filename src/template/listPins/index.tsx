@@ -10,7 +10,7 @@ function ListPins({ Pins }: { Pins: recourseType[] }) {
         <>
             <motion.section layout className={Style.containerRecourses}>
                 <AnimatePresence>
-                    {Pins.slice(0, 3).map(data => (
+                    {Pins.slice(0, count).map(data => (
                         <CardRecourse  {...data} key={data.name} />
                     ))}
                 </AnimatePresence>
