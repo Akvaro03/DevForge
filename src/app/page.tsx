@@ -8,10 +8,12 @@ import useCategoriesSelected from "@/hooks/useCategoriesSelected";
 import ListPins from "../template/listPins";
 import filterPinsByCategory from "@/utils/filterPinsByCategory";
 import categories from "@/assets/datasheet/categories.json";
-import SearchOffIcon from "@mui/icons-material/SearchOff";
+import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import CustomBottom from "@/components/customBottom";
+import { Tooltip } from "@mui/material";
 export default function Home() {
-  const { categoriesSelected, editCategory, clearCategories } = useCategoriesSelected();
+  const { categoriesSelected, editCategory, clearCategories } =
+    useCategoriesSelected();
   const filteredData = filterPinsByCategory(
     RecoursesData.data,
     categoriesSelected
@@ -21,8 +23,15 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center py-8">
       <HeaderComponent />
       <section className={Style.headerPage}>
-        <h1 className={Style.tittlePage}>Explore Recourses</h1>
-        {categoriesSelected[0] && <CustomBottom isCircle onClick={clearCategories} icon={<SearchOffIcon />} />}
+          <h1 className={Style.tittlePage}>Explore Recourses</h1>
+        {categoriesSelected[0] && (
+          <CustomBottom
+            isCircle
+            toolTip="Clean Filters"
+            onClick={clearCategories}
+            icon={<FilterAltOffIcon />}
+          />
+        )}
       </section>
       <TypesData
         categories={categories.data}
