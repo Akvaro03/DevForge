@@ -8,7 +8,7 @@ function BookMarkRecourse({ isHover, nameRecourse }: { isHover: boolean, nameRec
     const isSave: boolean = isPinSave(nameRecourse)
 
     return (
-        isHover && (
+        (isHover || isSave) && (
             <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

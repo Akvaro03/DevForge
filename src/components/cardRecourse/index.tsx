@@ -25,7 +25,6 @@ function CardRecourse({ name, description, url, categories }: recourseType) {
     const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
         if (target.tagName === 'path' || target.tagName === 'svg') {
-            console.log("Se cambia")
             saveRecourse({ name, description, url, categories })
             resetPins()
         } else {
