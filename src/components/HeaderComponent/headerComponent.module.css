@@ -1,75 +1,115 @@
 .containerHeader {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  flex-wrap: wrap; /* Para permitir que los elementos se ajusten */
 }
 
 .tittleHeader {
-    font-size: 4vmin;
-    color: var(--white-theme);
-    padding-top: 10px;
-    font-weight: bold;
+  font-size: 5vmin;
+  color: var(--white-theme);
+  padding-top: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 .tittleHeader span {
-    color: var(--first-theme);
+  color: var(--first-theme);
 }
 
 .containerButtons {
-    width: 40vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .containerButtons button {
-    border: 1px solid black;
-    padding: 10px;
-    min-width: 100px;
-    border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  min-width: 80px;
+  border-radius: 10px;
 }
 
 .linkHeader {
-    position: relative;
+  position: relative;
 }
 
 .linkHeader:before {
-    content: "";
-    position: 100%;
-    position: absolute;
-    bottom: 0;
-    height: 5%;
-    background: var(--three-theme);
-    animation: hoverOut .3s ease-in-out;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 5%;
+  background: var(--three-theme);
+  animation: hoverOut 0.3s ease-in-out;
 }
 
 .linkHeader:hover:before {
-    content: "";
-    position: 100%;
-    position: absolute;
-    bottom: 0;
-    height: 5%;
-    background: var(--three-theme);
-    width: 100%;
-    animation: hoverIn .3s ease-in-out;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 5%;
+  background: var(--three-theme);
+  width: 100%;
+  animation: hoverIn 0.3s ease-in-out;
 }
 
 @keyframes hoverIn {
-    0% {
-        width: 0%;
-    }
+  0% {
+    width: 0%;
+  }
 
-    100% {
-        width: 100%;
-    }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes hoverOut {
-    0% {
-        width: 100%;
-    }
+  0% {
+    width: 100%;
+  }
 
-    100% {
-        width: 0%;
-    }
+  100% {
+    width: 0%;
+  }
+}
+
+/* Media Queries para Responsividad */
+
+@media (max-width: 768px) {
+  .containerHeader {
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center;
+  }
+
+  .tittleHeader {
+    font-size: 6vmin; /* Ajusta el tamaño del título en móviles */
+  }
+
+  .containerButtons {
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    gap: 10px; /* Espacio entre botones */
+    flex-direction: column; /* Coloca los botones en columna */
+  }
+
+  .containerButtons button {
+    min-width: 70%; /* Ajusta el ancho de los botones en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .tittleHeader {
+    font-size: 7vmin; /* Ajusta el tamaño del título en pantallas más pequeñas */
+  }
+
+  .containerButtons button {
+    min-width: 90%; /* Aumenta el ancho de los botones en pantallas pequeñas */
+  }
 }

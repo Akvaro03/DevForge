@@ -43,7 +43,7 @@ function SavesPage() {
   const pinFiltered = filterPinsByCategory(pinSave, categoriesSelected);
 
   return (
-    <main className="flex min-h-screen flex-col items-center py-8">
+    <main className="dark flex min-h-screen flex-col items-center py-8">
       <HeaderComponent />
       {pinSave && pinSave[0] ? (
         <>

@@ -65,14 +65,14 @@
 
 .tittleCard {
   text-align: left;
-  font-size: 3vmin;
+  font-size: 3.5vmin;
   color: var(--white-theme);
   font-weight: bold;
 }
 
 .subtitleCard {
   color: var(--subtitle-theme);
-  font-size: 1.5vmin;
+  font-size: 2vmin;
 }
 
 .descriptionCard {
@@ -94,4 +94,10 @@
   height: 2vh;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .descriptionCard {
+    font-size: 2vmin;
+  }
 }

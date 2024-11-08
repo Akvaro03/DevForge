@@ -10,7 +10,6 @@ import filterPinsByCategory from "@/utils/filterPinsByCategory";
 import categories from "@/assets/datasheet/categories.json";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import CustomBottom from "@/components/customBottom";
-import { Tooltip } from "@mui/material";
 export default function Home() {
   const { categoriesSelected, editCategory, clearCategories } =
     useCategoriesSelected();
@@ -20,7 +19,7 @@ export default function Home() {
   );
 
   return (
-    <main className="flex min-h-screen flex-col items-center py-8">
+    <main  className="dark flex min-h-screen flex-col items-center py-8">
       <HeaderComponent />
       <section className={Style.headerPage}>
           <h1 className={Style.tittlePage}>Explore Recourses</h1>

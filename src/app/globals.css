@@ -3,23 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --background-rgb: #1D1F21;
-  --background-start-rgb: #2C2C2C;
+  --background-rgb: #1d1f21;
+  --background-start-rgb: #2c2c2c;
   --second-background: #444648;
-  --first-theme: #FF6600;
+  --first-theme: #ff6600;
   --second-theme: #ff983f;
   --three-theme: #ffffa1;
-  --white-theme: #FFFFFF;
-  --subtitle-theme: #B0B5C0;
+  --white-theme: #ffffff;
+  --subtitle-theme: #b0b5c0;
 }
 
 body {
   color: var(--white-theme);
-  /* background: var(--background-rgb); */
   background: radial-gradient(circle, #252729 0%, #17181a 70%);
-
 }
-.important{
+.important {
   color: var(--first-theme);
 }
 @layer utilities {

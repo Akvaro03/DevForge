@@ -23,7 +23,7 @@ function FormUser({ type, onSubmit, tittleComponent }: { type: "signIn" | "creat
         if (formErrors.hasOwnProperty(name)) {
             setFormErrors({ ...formErrors, [name]: "" });
         }
-    };
+    }; 
     const validateForm = () => {
         const errors: Partial<FormUserData> = {};
         if (!formData.email.trim()) {
